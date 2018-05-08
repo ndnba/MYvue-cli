@@ -7,7 +7,7 @@
 export default {
   data () {
     return {
-      msg: '这才是登录页'
+      msg: '这才是登录页,你知道么'
     }
   }
 }
