@@ -6,25 +6,27 @@
           <img src="../assets/images/logo.png" >
         </div>
         <h3>电商后台管理系统</h3>
-      <el-button type="info">退出</el-button>
+      <el-button type="info" @click="logout">退出</el-button>
   </el-header>
 
   <el-container>
     <el-aside :style="{width: toggleBar ? '65px' : '200px'}">
       <div class="menuTop" @click="toggleBar=!toggleBar">|||</div>
-      <el-menu :collapse="toggleBar" :collapse-transition="false" :unique-opened="true" background-color="#373d41" text-color="#fff" active-text-color="#fff">
+      <el-menu :collapse="toggleBar" :collapse-transition="false" :unique-opened="true" background-color="#373d41" text-color="#fff" active-text-color="#fff" :router="true">
         <el-submenu :index="(i+1).toString()" v-for="(item, i) in asideData" :key="item.id" :style="{width: toggleBar ? '65px' : '200px'}">
           <template slot="title">
-            <i class="el-icon-location"></i>
+            <i :class="['iconfont', menuIcons[i]]" style="margin-right:10px;"></i>
             <span>{{item.authName}}</span>
           </template>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
           <el-menu-item-group :index="(i+1).toString()" v-for="(item, i) in item.children" :key="item.id">
-            <el-menu-item index="1-1">{{item.authName}}</el-menu-item>
+            <el-menu-item :index="item.path">{{item.authName}}</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
     </el-menu>
     </el-aside>
-    <el-main>Main</el-main>
+    <el-main>
+      <router-view></router-view>
+    </el-main>
   </el-container>
 </el-container>
 </template>

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import './assets/css/index.css'
+import './assets/fonts/iconfont.css'
 import axios from 'axios'
 import ElementUI from 'element-ui'
 Vue.use(ElementUI)
